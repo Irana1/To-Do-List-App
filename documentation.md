@@ -5,3 +5,7 @@ Had the first issue with getting the task input value showing up in the created 
 ## Second Issue
 
 Second issue was that the div wou'dnt display the task text after creating the task object. **Simple fix is to create a task span, set it's text content to the tasks' text value, and append the span to the task div.**
+
+## Third Issue
+
+Third issue was that the task span wouldn't add the completed class list after being clicked. I added the lines *task.completed = !task.completed;* and *taskSpan.classList.toggle("completed", task.completed);* but still wouldn't work. After experimenting, I found that the **CSS selector was wrong. IDs' use #, while classes use .**.

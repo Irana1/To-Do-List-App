@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const taskInput = document.querySelector("#task-input");
     const taskContainer = document.querySelector("#task-container");
 
-    let taskList = []
-    let currentId = 1
+    let taskList = [];
+    let currentId = 1;
 
     taskForm.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const taskText = taskInput.value.trim();
 
         if (taskText === "") {
-            window.alert("Input cannot be empty.")
+            window.alert("Input cannot be empty.");
             taskInput.value = ""
         } else {
             const task = {
@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const taskSpan = document.createElement("span");
             taskSpan.textContent = task.text;
+            taskSpan.addEventListener("click", function() {
+                task.completed = !task.completed;
+                taskSpan.classList.toggle("completed", task.completed);
+            })
 
             const editButton = document.createElement("button");
             editButton.textContent = "Edit";
